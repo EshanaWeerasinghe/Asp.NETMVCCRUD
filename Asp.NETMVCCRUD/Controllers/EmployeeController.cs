@@ -10,13 +10,11 @@ namespace Asp.NETMVCCRUD.Controllers
 {
     public class EmployeeController : Controller
     {
-        //
         // GET: /Employee/
         public ActionResult Index()
         {
             return View();
         }
-
         public ActionResult GetData()
         {
             using (DBModel db = new DBModel())
@@ -25,7 +23,6 @@ namespace Asp.NETMVCCRUD.Controllers
                 return Json(new { data = empList }, JsonRequestBehavior.AllowGet);
             }
         }
-
         [HttpGet]
         public ActionResult AddOrEdit(int id = 0)
         {
@@ -39,7 +36,6 @@ namespace Asp.NETMVCCRUD.Controllers
                 }
             }
         }
-
         [HttpPost]
         public ActionResult AddOrEdit(Employee emp)
         {
@@ -57,8 +53,6 @@ namespace Asp.NETMVCCRUD.Controllers
                     return Json(new { success = true, message = "Updated Successfully" }, JsonRequestBehavior.AllowGet);
                 }
             }
-
-
         }
 
         [HttpPost]
